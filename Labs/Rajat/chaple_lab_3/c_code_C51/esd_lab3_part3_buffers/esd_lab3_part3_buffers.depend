@@ -1,0 +1,42 @@
+# depslib dependency file v1.0
+1634161606 source:c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_buffers\_heap.c
+
+1634659719 source:c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_buffers\debug.c
+	"debug.h"
+
+1634686203 c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_buffers\debug.h
+	"stdint.h"
+
+1634614254 source:c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_buffers\irq.c
+	<mcs51/8051.h>
+	"uart.h"
+
+1634614275 c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_buffers\uart.h
+	<stdint.h>
+	<stdbool.h>
+
+1634679919 source:c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_buffers\main.c
+	<mcs51/8051.h>
+	<mcs51/at89c51ed2.h>
+	"uart.h"
+	"stdio.h"
+	"string.h"
+	"irq.h"
+	"stdlib.h"
+	"queue.h"
+	"debug.h"
+
+1634614253 c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_buffers\irq.h
+
+1634320185 c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_buffers\queue.h
+
+1634666613 source:c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_buffers\uart.c
+	<mcs51/8051.h>
+	<stdint.h>
+	"uart.h"
+	<stdbool.h>
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	"queue.h"
+

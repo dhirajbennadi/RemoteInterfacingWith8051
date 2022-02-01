@@ -1,0 +1,73 @@
+A51 MACRO ASSEMBLER  LAB2PART1REQUIRED                                                    10/01/2021 14:48:50 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Lab2Part1Required.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Lab2Part1Required.a51 SET(SMALL) DEBUG PRINT(.\Listings\Lab2Part1Requir
+                      ed.lst) OBJECT(.\Objects\Lab2Part1Required.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;Embedded System Design ECEN 5613
+                       2     ;Submitted by: Dhiraj Bennadi
+                       3     
+                       4     ;Program to Toggle LED at 430ms using ISR of Timer 0
+                       5     
+                       6     ;Start of Program
+0000                   7     ORG 0000H
+0000 020030            8     LJMP main
+                       9     
+                      10     ;Timer 0 ISR Routine IVT Address
+000B                  11     ORG 000BH
+000B 020042           12     LJMP ISR_T0
+                      13     
+                      14     ;main
+0030                  15     ORG 0030H
+0030 758901           16     main: MOV TMOD,#01H                ;Timer 0 Mode 1 16 bit Timer
+0033 75A882           17               MOV IE,#82H                  ;Enable Interrupt Bit , Enable Timer 0 Overflow Bit
+0036 7806             18               MOV R0,#06H                  ;To generate a delay of 430ms , Count of (0-FFFFH + 
+                             1) * 6
+0038 758A00           19               MOV TL0,#000H                ;Load Timer 0 Lower Byte Register with 0H
+003B 758C00           20               MOV TH0,#000H                ;Load Timer 0 Higher Byte Register with 0H
+003E D28C             21               SETB TR0                     ;Start Timer 0 bit
+                      22               
+                      23     ;Infinite Loop
+0040 80FE             24     HERE:SJMP HERE
+                      25     
+                      26     ;Timer 0 ISR Routine
+0042 D292             27     ISR_T0:SETB P1.2                   ;Set P1.2 to measure the ISR Timing
+0044 D80C             28            DJNZ R0,DELAY_COUNTER       ;Loop the counter 6 times
+0046 B291             29                CPL P1.1                    ;Toggle P1.1
+0048 7806             30                MOV R0,#06H                 ;Reinitialize the Counter to 6 for 430ms Delay
+004A 758A00           31                MOV TL0,#00H                ;Load Timer 0 Lower Byte Register with 0H          
+004D 758C00           32                MOV TH0,#00H                ;Load Timer 0 Higher Byte Register with 0H
+0050 C292             33                CLR P1.2                    ;Clear P1.2 to measure the ISR Timing
+0052 32               34     DELAY_COUNTER:RETI
+                      35     ;End of Program
+                      36     END
+                             
+                             
+A51 MACRO ASSEMBLER  LAB2PART1REQUIRED                                                    10/01/2021 14:48:50 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY_COUNTER. . .  C ADDR   0052H   A   
+HERE . . . . . . .  C ADDR   0040H   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+ISR_T0 . . . . . .  C ADDR   0042H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

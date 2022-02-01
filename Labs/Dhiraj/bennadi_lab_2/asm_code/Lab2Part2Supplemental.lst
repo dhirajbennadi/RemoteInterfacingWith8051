@@ -1,0 +1,88 @@
+A51 MACRO ASSEMBLER  LAB2PART2SUPPLEMENTAL                                                10/02/2021 02:26:55 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Lab2Part2Supplemental.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Lab2Part2Supplemental.a51 SET(SMALL) DEBUG PRINT(.\Listings\Lab2Part2Su
+                      pplemental.lst) OBJECT(.\Objects\Lab2Part2Supplemental.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;Embedded System Design ECEN 5613
+                       2     ;Submitted by: Dhiraj Bennadi
+                       3     
+                       4     ;Program to Toggle LED at 430ms using ISR of Timer 0
+                       5     
+                       6     ;Start of Program
+0000                   7     ORG 0000H
+0000 020030            8     LJMP main
+                       9     
+                      10     ;Timer 0 ISR Routine IVT Address
+000B                  11     ORG 000BH
+000B 020051           12     LJMP ISR_T0
+                      13     
+                      14     ;main
+0030                  15     ORG 0030H
+0030 758901           16     main: MOV TMOD,#01H                ;Timer 0 Mode 1 16 bit Timer
+0033 75A882           17               MOV IE,#82H                  ;Enable Interrupt Bit , Enable Timer 0 Overflow Bit
+0036 7806             18               MOV R0,#06H                  ;To generate a delay of 430ms , Count of (0-FFFFH + 
+                             1) * 6
+0038 7900             19               MOV R1,#0H                   ;Main Loop Counter
+003A 7A80             20               MOV R2,#080H                  ;ISR Counter
+003C 758A00           21               MOV TL0,#000H                ;Load Timer 0 Lower Byte Register with 0H
+003F 758C00           22               MOV TH0,#000H                ;Load Timer 0 Higher Byte Register with 0H
+0042 902000           23               MOV DPTR,#2000H              ;Giving random dummy address
+0045 D28C             24               SETB TR0                     ;Start Timer 0 bit
+                      25               
+                      26     ;Infinite Loop
+0047 E9               27     HERE:MOV A,R1
+0048 F0               28              MOVX @DPTR,A
+0049 09               29              INC R1
+004A B980FA           30              CJNE R1,#80H,HERE
+004D 7900             31              MOV R1,#0H
+004F 80F6             32              SJMP HERE
+                      33     
+                      34     ;Timer 0 ISR Routine
+0051 D292             35     ISR_T0:SETB P1.2                   ;Set P1.2 to measure the ISR Timing
+0053 EA               36                MOV A,R2
+0054 F0               37                MOVX @DPTR,A
+0055 0A               38                INC R2
+0056 BA0002           39                CJNE R2,#00H,RELOAD
+0059 7A80             40                MOV R2,#80H
+                      41                
+005B D80C             42     RELOAD:DJNZ R0,DELAY_COUNTER       ;Loop the counter 6 times
+005D B291             43                CPL P1.1                    ;Toggle P1.1
+005F 7806             44                MOV R0,#06H                 ;Reinitialize the Counter to 6 for 430ms Delay
+0061 758A00           45                MOV TL0,#00H                ;Load Timer 0 Lower Byte Register with 0H          
+0064 758C00           46                MOV TH0,#00H                ;Load Timer 0 Higher Byte Register with 0H
+0067 C292             47                CLR P1.2                    ;Clear P1.2 to measure the ISR Timing
+0069 32               48     DELAY_COUNTER:RETI
+                      49     ;End of Program
+                      50     END
+                             
+                             
+A51 MACRO ASSEMBLER  LAB2PART2SUPPLEMENTAL                                                10/02/2021 02:26:55 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY_COUNTER. . .  C ADDR   0069H   A   
+HERE . . . . . . .  C ADDR   0047H   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+ISR_T0 . . . . . .  C ADDR   0051H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+RELOAD . . . . . .  C ADDR   005BH   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

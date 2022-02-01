@@ -1,0 +1,59 @@
+# depslib dependency file v1.0
+1634161606 source:c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_pca\_heap.c
+
+1634659719 source:c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_pca\debug.c
+	"debug.h"
+
+1634686203 c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_pca\debug.h
+	"stdint.h"
+
+1634614254 source:c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_pca\irq.c
+	<mcs51/8051.h>
+	"uart.h"
+
+1635131615 c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_pca\uart.h
+	<stdint.h>
+	<stdbool.h>
+
+1635136051 source:c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_pca\main.c
+	<mcs51/8051.h>
+	<mcs51/at89c51ed2.h>
+	"uart.h"
+	"stdio.h"
+	"string.h"
+	"irq.h"
+	"stdlib.h"
+	"queue.h"
+	"debug.h"
+	"timers_pwm.h"
+
+1634614253 c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_pca\irq.h
+
+1634320185 c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_pca\queue.h
+
+1635133743 source:c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_pca\timers_pwm.c
+	<mcs51/at89c51ed2.h>
+	<mcs51/8051.h>
+	<stdint.h>
+	"uart.h"
+	<stdbool.h>
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	"queue.h"
+
+1635135095 source:c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_pca\uart.c
+	<mcs51/at89c51ed2.h>
+	<mcs51/8051.h>
+	<stdint.h>
+	"uart.h"
+	<stdbool.h>
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	"queue.h"
+
+1635132581 c:\users\rajat\documents\cu boulder\academics\fall 21\esd\assignments\lab3\esd-lab3\part3\source_sdcc\esd_lab3_part3_pca\timers_pwm.h
+	<stdint.h>
+	<stdbool.h>
+

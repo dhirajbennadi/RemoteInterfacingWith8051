@@ -1,0 +1,88 @@
+A51 MACRO ASSEMBLER  LAB2PART1RECOMMENDED                                                 10/01/2021 14:48:11 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Lab2Part1Recommended.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Lab2Part1Recommended.a51 SET(SMALL) DEBUG PRINT(.\Listings\Lab2Part1Rec
+                      ommended.lst) OBJECT(.\Objects\Lab2Part1Recommended.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;Embedded System Design ECEN 5613
+                       2     ;Submitted by: Dhiraj Bennadi
+                       3     
+                       4     ;Program to Read the Status of the Pin and Change the rate of 
+                       5     ;LED blinking
+                       6     
+                       7     ;Start of Program
+0000                   8     ORG 0000H
+0000 020030            9     LJMP main
+                      10     
+                      11     ;Timer 0 ISR Routine IVT Address
+000B                  12     ORG 000BH
+000B 020044           13     LJMP Timer0Isr
+                      14     
+                      15     ;Initialization of Timer Registers
+0030                  16     ORG 0030H
+0030 758901           17     main: MOV TMOD,#01H         ;Timer 0 Mode 1 16 bit Timer
+0033 75A882           18               MOV IE,#82H           ;Enable Interrupt Bit , Enable Timer 0 Overflow Bit
+0036 1155             19               CALL ReadPinVal       ;Jump to brnach ReadPinVal to read the status of P1.3
+0038 758A00           20               MOV TL0,#00H          ;Load Timer 0 Lower Byte Register with 0H
+003B 758C00           21               MOV TH0,#00H          ;Load Timer 0 Higher Byte Register with 0H
+003E D28C             22               SETB TR0              ;Start Timer 0 bit
+                      23               
+                      24     ;Infinite Loop
+0040 1155             25     HERE:CALL ReadPinVal        ;Jump to brnach ReadPinVal to read the status of P1.3
+0042 80FC             26          SJMP HERE
+                      27     
+                      28     
+                      29     ;Timer 0 ISR Routine
+0044 D292             30     Timer0Isr:SETB P1.2                 ;Set P1.2 to measure the ISR Timing
+0046 D80C             31               DJNZ R0,DELAY_COUNTER     ;Loop the counter as specified by the P1.3 status
+0048 B291             32                   CPL P1.1                  ;Toggle P1.1
+004A 1155             33                       CALL ReadPinVal           ;Jump to brnach ReadPinVal to read the status o
+                             f P1.3
+004C 758A00           34                   MOV TL0,#00H              ;Load Timer 0 Lower Byte Register with 0H
+004F 758C00           35                   MOV TH0,#00H              ;Load Timer 0 Higher Byte Register with 0H
+0052 C292             36                   CLR P1.2                  ;Clear P1.2 to measure the ISR Timing
+0054 32               37     DELAY_COUNTER:RETI                  ;Return from ISR
+                      38     
+                      39     ;Branch to poll the Pin continuously
+0055 209304           40     ReadPinVal:JB P1.3,BlinkRate        ;Jump to branch BlinkRate to change the delay value
+0058 7803             41                MOV R0,#03H              ;Load value for a delay of 0.5Hz
+005A 8002             42                        SJMP NEXT                ;Jump to Branch Next
+                      43     
+                      44     ;Determine the Blinkrate based on the Pin Reading
+005C 7806             45     BlinkRate: MOV R0,#06H              ;Load value for a delay of 1.16Hz
+005E 22               46     NEXT:RET                            ;Return from Loop
+                      47     ;End of Program
+                      48     END
+                             
+                             
+A51 MACRO ASSEMBLER  LAB2PART1RECOMMENDED                                                 10/01/2021 14:48:11 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BLINKRATE. . . . .  C ADDR   005CH   A   
+DELAY_COUNTER. . .  C ADDR   0054H   A   
+HERE . . . . . . .  C ADDR   0040H   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+NEXT . . . . . . .  C ADDR   005EH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+READPINVAL . . . .  C ADDR   0055H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TIMER0ISR. . . . .  C ADDR   0044H   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,235 @@
+<!--This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA) with Design Exception 1.0-->
+<eagle version="7.1.0">
+<drawing>
+<settings>
+<setting alwaysvectorfont="no"/>
+<setting verticaltext="up"/>
+</settings>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<layers>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
+<layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
+<layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
+<layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
+<layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
+<layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
+</layers>
+<library>
+<packages>
+<package name="MODULE_EK-TM4C123GXL">
+<wire x1="-25.4" y1="33.02" x2="-25.4" y2="-33.02" width="0.127" layer="51"/>
+<wire x1="-25.4" y1="-33.02" x2="25.4" y2="-33.02" width="0.127" layer="51"/>
+<wire x1="25.4" y1="-33.02" x2="25.4" y2="33.02" width="0.127" layer="51"/>
+<wire x1="25.4" y1="33.02" x2="-25.4" y2="33.02" width="0.127" layer="51"/>
+<wire x1="-25.4" y1="33.02" x2="-25.4" y2="-33.02" width="0.127" layer="21"/>
+<wire x1="-25.4" y1="-33.02" x2="25.4" y2="-33.02" width="0.127" layer="21"/>
+<wire x1="25.4" y1="-33.02" x2="25.4" y2="33.02" width="0.127" layer="21"/>
+<wire x1="25.4" y1="33.02" x2="-25.4" y2="33.02" width="0.127" layer="21"/>
+<wire x1="-25.65" y1="33.27" x2="25.65" y2="33.27" width="0.05" layer="39"/>
+<wire x1="25.65" y1="33.27" x2="25.65" y2="-33.27" width="0.05" layer="39"/>
+<wire x1="25.65" y1="-33.27" x2="-25.65" y2="-33.27" width="0.05" layer="39"/>
+<wire x1="-25.65" y1="-33.27" x2="-25.65" y2="33.27" width="0.05" layer="39"/>
+<text x="-25.5" y="33.5" size="1.27" layer="25">&gt;NAME</text>
+<text x="-25.5" y="-33.5" size="1.27" layer="27" align="top-left">&gt;VALUE</text>
+<circle x="-26.25" y="2.54" radius="0.1" width="0.2" layer="21"/>
+<circle x="-26.25" y="2.54" radius="0.1" width="0.2" layer="51"/>
+<pad name="J1_1" x="-22.86" y="2.54" drill="0.89" diameter="1.52" shape="square"/>
+<pad name="J1_2" x="-22.86" y="0" drill="0.89" diameter="1.52"/>
+<pad name="J1_3" x="-22.86" y="-2.54" drill="0.89" diameter="1.52"/>
+<pad name="J1_4" x="-22.86" y="-5.08" drill="0.89" diameter="1.52"/>
+<pad name="J1_5" x="-22.86" y="-7.62" drill="0.89" diameter="1.52"/>
+<pad name="J1_6" x="-22.86" y="-10.16" drill="0.89" diameter="1.52"/>
+<pad name="J1_7" x="-22.86" y="-12.7" drill="0.89" diameter="1.52"/>
+<pad name="J1_8" x="-22.86" y="-15.24" drill="0.89" diameter="1.52"/>
+<pad name="J1_9" x="-22.86" y="-17.78" drill="0.89" diameter="1.52"/>
+<pad name="J1_10" x="-22.86" y="-20.32" drill="0.89" diameter="1.52"/>
+<pad name="J2_1" x="22.86" y="2.54" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J3_1" x="-20.32" y="2.54" drill="0.89" diameter="1.52"/>
+<pad name="J4_1" x="20.32" y="2.54" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J2_2" x="22.86" y="0" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J3_2" x="-20.32" y="0" drill="0.89" diameter="1.52"/>
+<pad name="J4_2" x="20.32" y="0" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J2_3" x="22.86" y="-2.54" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J3_3" x="-20.32" y="-2.54" drill="0.89" diameter="1.52"/>
+<pad name="J4_3" x="20.32" y="-2.54" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J2_4" x="22.86" y="-5.08" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J3_4" x="-20.32" y="-5.08" drill="0.89" diameter="1.52"/>
+<pad name="J4_4" x="20.32" y="-5.08" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J2_5" x="22.86" y="-7.62" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J3_5" x="-20.32" y="-7.62" drill="0.89" diameter="1.52"/>
+<pad name="J4_5" x="20.32" y="-7.62" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J2_6" x="22.86" y="-10.16" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J3_6" x="-20.32" y="-10.16" drill="0.89" diameter="1.52"/>
+<pad name="J4_6" x="20.32" y="-10.16" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J2_7" x="22.86" y="-12.7" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J3_7" x="-20.32" y="-12.7" drill="0.89" diameter="1.52"/>
+<pad name="J4_7" x="20.32" y="-12.7" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J2_8" x="22.86" y="-15.24" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J3_8" x="-20.32" y="-15.24" drill="0.89" diameter="1.52"/>
+<pad name="J4_8" x="20.32" y="-15.24" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J2_9" x="22.86" y="-17.78" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J3_9" x="-20.32" y="-17.78" drill="0.89" diameter="1.52"/>
+<pad name="J4_9" x="20.32" y="-17.78" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J2_10" x="22.86" y="-20.32" drill="0.89" diameter="1.52" rot="R180"/>
+<pad name="J3_10" x="-20.32" y="-20.32" drill="0.89" diameter="1.52"/>
+<pad name="J4_10" x="20.32" y="-20.32" drill="0.89" diameter="1.52" rot="R180"/>
+</package>
+</packages>
+<symbols>
+<symbol name="EK-TM4C123GXL">
+<text x="-12.7367" y="34.3099" size="1.78014" layer="95">&gt;NAME</text>
+<text x="-12.7129" y="-38.1075" size="1.77875" layer="96">&gt;VALUE</text>
+<wire x1="-12.7" y1="33.02" x2="12.7" y2="33.02" width="0.254" layer="94"/>
+<wire x1="12.7" y1="33.02" x2="12.7" y2="-35.56" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-35.56" x2="-12.7" y2="-35.56" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="-35.56" x2="-12.7" y2="33.02" width="0.254" layer="94"/>
+<pin name="+3.3V" x="17.78" y="30.48" length="middle" direction="pwr" rot="R180"/>
+<pin name="PB5" x="17.78" y="10.16" length="middle" rot="R180"/>
+<pin name="PB0" x="17.78" y="22.86" length="middle" rot="R180"/>
+<pin name="PB1" x="17.78" y="20.32" length="middle" rot="R180"/>
+<pin name="PE4" x="-17.78" y="-22.86" length="middle"/>
+<pin name="PA5" x="-17.78" y="10.16" length="middle"/>
+<pin name="PA6" x="-17.78" y="7.62" length="middle"/>
+<pin name="PA7" x="-17.78" y="5.08" length="middle"/>
+<pin name="PA2" x="-17.78" y="17.78" length="middle"/>
+<pin name="PA3" x="-17.78" y="15.24" length="middle"/>
+<pin name="PA4" x="-17.78" y="12.7" length="middle"/>
+<pin name="PB6" x="17.78" y="7.62" length="middle" rot="R180"/>
+<pin name="PB7" x="17.78" y="5.08" length="middle" rot="R180"/>
+<pin name="!TARGETRST" x="-17.78" y="22.86" length="middle" direction="in"/>
+<pin name="PF0" x="17.78" y="-17.78" length="middle" rot="R180"/>
+<pin name="PE0" x="-17.78" y="-12.7" length="middle"/>
+<pin name="PB2" x="17.78" y="17.78" length="middle" rot="R180"/>
+<pin name="+VBUS" x="17.78" y="27.94" length="middle" direction="pwr" rot="R180"/>
+<pin name="GND" x="17.78" y="-33.02" length="middle" direction="pwr" rot="R180"/>
+<pin name="PD0" x="17.78" y="0" length="middle" rot="R180"/>
+<pin name="PD1" x="17.78" y="-2.54" length="middle" rot="R180"/>
+<pin name="PE2" x="-17.78" y="-17.78" length="middle"/>
+<pin name="PE3" x="-17.78" y="-20.32" length="middle"/>
+<pin name="PF1" x="17.78" y="-20.32" length="middle" rot="R180"/>
+<pin name="PF4" x="17.78" y="-27.94" length="middle" rot="R180"/>
+<pin name="PD7" x="17.78" y="-12.7" length="middle" rot="R180"/>
+<pin name="PD6" x="17.78" y="-10.16" length="middle" rot="R180"/>
+<pin name="PC7" x="-17.78" y="-7.62" length="middle"/>
+<pin name="PC6" x="-17.78" y="-5.08" length="middle"/>
+<pin name="PC5" x="-17.78" y="-2.54" length="middle"/>
+<pin name="PC4" x="-17.78" y="0" length="middle"/>
+<pin name="PB3" x="17.78" y="15.24" length="middle" rot="R180"/>
+<pin name="PF3" x="17.78" y="-25.4" length="middle" rot="R180"/>
+<pin name="PF2" x="17.78" y="-22.86" length="middle" rot="R180"/>
+<pin name="PE5" x="-17.78" y="-25.4" length="middle"/>
+<pin name="PE1" x="-17.78" y="-15.24" length="middle"/>
+<pin name="PB4" x="17.78" y="12.7" length="middle" rot="R180"/>
+<pin name="PD3" x="17.78" y="-7.62" length="middle" rot="R180"/>
+<pin name="PD2" x="17.78" y="-5.08" length="middle" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="EK-TM4C123GXL" prefix="U">
+<description>ARM® Cortex®-M4F Based MCU TM4C123G LaunchPad™ Evaluation Kit  &lt;a href="https://pricing.snapeda.com/parts/EK-TM4C123GXL/Texas%20Instruments/view-part?ref=eda"&gt;Check prices&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="EK-TM4C123GXL" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="MODULE_EK-TM4C123GXL">
+<connects>
+<connect gate="G$1" pin="!TARGETRST" pad="J2_5"/>
+<connect gate="G$1" pin="+3.3V" pad="J1_1"/>
+<connect gate="G$1" pin="+VBUS" pad="J3_1"/>
+<connect gate="G$1" pin="GND" pad="J2_1 J3_2"/>
+<connect gate="G$1" pin="PA2" pad="J2_10"/>
+<connect gate="G$1" pin="PA3" pad="J2_9"/>
+<connect gate="G$1" pin="PA4" pad="J2_8"/>
+<connect gate="G$1" pin="PA5" pad="J1_8"/>
+<connect gate="G$1" pin="PA6" pad="J1_9"/>
+<connect gate="G$1" pin="PA7" pad="J1_10"/>
+<connect gate="G$1" pin="PB0" pad="J1_3"/>
+<connect gate="G$1" pin="PB1" pad="J1_4"/>
+<connect gate="G$1" pin="PB2" pad="J2_2"/>
+<connect gate="G$1" pin="PB3" pad="J4_3"/>
+<connect gate="G$1" pin="PB4" pad="J1_7"/>
+<connect gate="G$1" pin="PB5" pad="J1_2"/>
+<connect gate="G$1" pin="PB6" pad="J2_7"/>
+<connect gate="G$1" pin="PB7" pad="J2_6"/>
+<connect gate="G$1" pin="PC4" pad="J4_4"/>
+<connect gate="G$1" pin="PC5" pad="J4_5"/>
+<connect gate="G$1" pin="PC6" pad="J4_6"/>
+<connect gate="G$1" pin="PC7" pad="J4_7"/>
+<connect gate="G$1" pin="PD0" pad="J3_3"/>
+<connect gate="G$1" pin="PD1" pad="J3_4"/>
+<connect gate="G$1" pin="PD2" pad="J3_5"/>
+<connect gate="G$1" pin="PD3" pad="J3_6"/>
+<connect gate="G$1" pin="PD6" pad="J4_8"/>
+<connect gate="G$1" pin="PD7" pad="J4_9"/>
+<connect gate="G$1" pin="PE0" pad="J2_3"/>
+<connect gate="G$1" pin="PE1" pad="J3_7"/>
+<connect gate="G$1" pin="PE2" pad="J3_8"/>
+<connect gate="G$1" pin="PE3" pad="J3_9"/>
+<connect gate="G$1" pin="PE4" pad="J1_5"/>
+<connect gate="G$1" pin="PE5" pad="J1_6"/>
+<connect gate="G$1" pin="PF0" pad="J2_4"/>
+<connect gate="G$1" pin="PF1" pad="J3_10"/>
+<connect gate="G$1" pin="PF2" pad="J4_1"/>
+<connect gate="G$1" pin="PF3" pad="J4_2"/>
+<connect gate="G$1" pin="PF4" pad="J4_10"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="Purchase-URL" value="https://pricing.snapeda.com/search/part/EK-TM4C123GXL/?ref=eda"/>
+<attribute name="Package" value="None"/>
+<attribute name="Description" value="
+ARM® Cortex®-M4F Based MCU TM4C123G LaunchPad™ Evaluation Kit
+"/>
+<attribute name="Price" value="None"/>
+<attribute name="Availability" value="In Stock"/>
+<attribute name="MF" value="Texas Instruments"/>
+<attribute name="MP" value="EK-TM4C123GXL"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+</drawing>
+</eagle>

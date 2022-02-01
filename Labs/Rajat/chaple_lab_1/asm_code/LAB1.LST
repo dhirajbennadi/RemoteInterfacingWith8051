@@ -1,0 +1,70 @@
+DUNFIELD 8051 ASSEMBLER: .\Lab1\LAB1                                  PAGE: 1
+
+0000                         1  *
+0000                         2  * EMILY program: Logic block for interfacing external memory
+0000                         3  * This program divides X*8 by Z
+0000                         4  * Result is stored as below 
+0000                         5  * Memory location	Result parameter
+0000                         6  * 0x20				X
+0000                         7  * 0x21				X*8
+0000                         8  * 0x22				Y
+0000                         9  * 0x23				Z (Quotient)
+0000                        10  * 0x24				remainder
+0000                        11  * 0x30				error code				
+0000                        12  *
+0000                        13  
+0000                        14  	ORG $0000
+0000                        15  	;MOV A,#8	;used to feed in values 
+0000                        16  	;MOV B,#7
+0000  AB F0                 17  	MOV R3,B	
+0002                        18  	;Error handling for 0 denominator (Y)
+0002  BB 00 14              19  	CJNE R3,#00h,DEN_NOT_ZERO
+0005  75 30 01              20  	MOV 30h,#01h
+0008  75 20 00              21  	MOV 20h,#00h
+000B  75 21 00              22  	MOV 21h,#00h
+000E  75 22 00              23  	MOV 22h,#00h
+0011  75 23 00              24  	MOV 23h,#00h
+0014  75 24 00              25  	MOV 24h,#00h
+0017  80 36                 26  	SJMP	ENDLOOP
+0019  F5 20                 27  DEN_NOT_ZERO	MOV 20h,A	;copying value in Acc (X) to memory 0x20
+001B                        28  
+001B                        29  
+001B                        30  
+001B                        31  	;multiplying X by 8
+001B  7A 00                 32  	MOV R2,#00h
+001D  33                    33  	RLC A
+001E  50 02                 34  	JNC LEFT_SHIFT2
+0020  7A 01                 35  	MOV R2,#01h
+0022                        36  	
+0022  33                    37  LEFT_SHIFT2	RLC A
+0023  50 02                 38  	JNC LEFT_SHIFT3
+0025  7A 01                 39  	MOV R2,#01h
+0027                        40  	
+0027  33                    41  LEFT_SHIFT3	RLC A
+0028  50 02                 42  	JNC SHIFTING_DONE
+002A  7A 01                 43  	MOV R2,#01h
+002C                        44  	
+002C  54 F8                 45  SHIFTING_DONE	ANL A,#0F8h 	;masking first 3 bits #f8h
+002E  BA 01 05              46  	CJNE R2,#01,NO_MULT_O_ERROR
+0031  75 30 02              47  	MOV 30h,#02h	;Error code 2 as Mult > 255
+0034  80 03                 48  	SJMP	MULT_O_ERROR	;multiplication overflow error
+0036  75 30 00              49  NO_MULT_O_ERROR	MOV 30h,#00h
+0039  F5 21                 50  MULT_O_ERROR	MOV 21h,A	;copying value X*8 to 0x21
+003B  85 F0 22              51  	MOV 22h,B	;copying value in B (Y) to 0x22
+003E  79 00                 52  	MOV R1,#00h	;initializing quotient value
+0040  79 00                 53  	MOV R1,#00h	;initializing quotient value
+0042  C3                    54  	CLR C
+0043                        55  	
+0043                        56  	
+0043                        57  	;division routine
+0043  95 F0                 58  SUB_UNTIL_NONZERO	SUBB A,B
+DUNFIELD 8051 ASSEMBLER: .\Lab1\LAB1                                  PAGE: 2
+
+0045  09                    59  	INC R1
+0046  50 FB                 60  	JNC	SUB_UNTIL_NONZERO	
+0048                        61  	;At this point accumulaotor is negative as carry is set and quotient is over-incremented by 1. 
+0048  19                    62  	DEC R1	;Decrementing quotient which was increamened after above condition
+0049  89 23                 63  	MOV 23h,R1	;copying Quotient to 0x23
+004B  25 F0                 64  	ADD A,B	;re-adding value which caused acc to go negative
+004D  F5 24                 65  	MOV 24h,A	;copying remainder to 0x24
+004F  80 FE                 66  ENDLOOP	SJMP	ENDLOOP

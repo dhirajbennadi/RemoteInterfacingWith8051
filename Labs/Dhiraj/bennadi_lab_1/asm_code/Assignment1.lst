@@ -1,0 +1,105 @@
+A51 MACRO ASSEMBLER  ASSIGNMENT1                                                          09/24/2021 02:14:57 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Assignment1.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Assignment1.a51 SET(SMALL) DEBUG PRINT(.\Listings\Assignment1.lst) OBJE
+                      CT(.\Objects\Assignment1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;Assembly Program for the equation Z = (X * 8) / Y without using
+                       2     ;MUL and DIV instructions
+                       3     ;Start of Program
+0000                   4     ORG 0000H
+0000 7410              5     MOV A,#10H
+0002 75F00A            6     MOV B,#0AH
+0005 F8                7     MOV R0,A
+0006 A9F0              8     MOV R1,B
+0008 E5F0              9     MOV A,B
+                      10     ;Jump to Error 1 if the divisor is zero
+000A 6019             11     JZ ERROR1
+000C E8               12     MOV A,R0
+000D 7A03             13     MOV R2,#03H
+                      14     ;Jump to branch Multiply if the divisor is not zero
+000F 800B             15     SJMP MULTIPLY
+                      16     
+                      17     ;Branch for Division (Repeated Subtraction)
+0011 95F0             18     DIVISION:SUBB A,B
+0013 4003             19                      JC STOP_DIVISION
+0015 0B               20                      INC R3
+0016 80F9             21                      SJMP DIVISION
+                      22     
+                      23     ;Branch to stop division if the dividend is less than divisor
+0018 25F0             24     STOP_DIVISION:ADD A,B
+001A 8021             25                   SJMP STORE
+                      26     
+                      27     ;Branch for Multiplication using left shift operation
+001C C3               28     MULTIPLY:CLR C
+001D 33               29                      RLC A
+001E DAFC             30                      DJNZ R2,MULTIPLY
+0020 400A             31                      JC ERROR2
+0022 FC               32                      MOV R4,A
+0023 80EC             33                      SJMP DIVISION
+                      34     
+                      35     ;Branch for Error Code 1 if the divisor is 0
+0025 7830             36     ERROR1:MOV R0,#30H
+0027 7401             37            MOV A,#01H
+0029 F6               38                MOV @R0,A
+002A 8025             39                SJMP ENDLOOP
+                      40     
+                      41     ;Branch for Error Code 2 if the dividend increases by 0xFF
+002C F523             42     ERROR2:MOV 23H,A
+002E F521             43            MOV 21H,A
+0030 E5F0             44                MOV A,B
+0032 F522             45                MOV 22H,A
+0034 8820             46                MOV 20H,R0
+0036 7830             47                MOV R0,#30H
+0038 7402             48                MOV A,#02H
+003A F6               49                MOV @R0,A
+003B 8014             50                SJMP ENDLOOP
+                      51     
+                      52     ;Branch to store result if the operation was successful
+003D F524             53     STORE:MOV 24H,A
+003F 8B23             54               MOV 23H,R3
+0041 8820             55               MOV 20H,R0
+0043 8C21             56               MOV 21H,R4
+0045 E5F0             57               MOV A,B
+A51 MACRO ASSEMBLER  ASSIGNMENT1                                                          09/24/2021 02:14:57 PAGE     2
+
+0047 F522             58               MOV 22H,A
+0049 8000             59               SJMP NO_ERROR
+                      60     
+                      61     ;Branch to store the result code of the successful operation
+004B 7400             62     NO_ERROR:MOV A,#00H
+004D F530             63                      MOV 30H,A
+004F 8000             64                      SJMP ENDLOOP
+                      65               
+                      66     
+                      67     ;Infinite Loop
+0051 80FE             68     ENDLOOP:SJMP ENDLOOP
+                      69     ;End of Program
+                      70     END
+A51 MACRO ASSEMBLER  ASSIGNMENT1                                                          09/24/2021 02:14:57 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+DIVISION . . . . .  C ADDR   0011H   A   
+ENDLOOP. . . . . .  C ADDR   0051H   A   
+ERROR1 . . . . . .  C ADDR   0025H   A   
+ERROR2 . . . . . .  C ADDR   002CH   A   
+MULTIPLY . . . . .  C ADDR   001CH   A   
+NO_ERROR . . . . .  C ADDR   004BH   A   
+STOP_DIVISION. . .  C ADDR   0018H   A   
+STORE. . . . . . .  C ADDR   003DH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

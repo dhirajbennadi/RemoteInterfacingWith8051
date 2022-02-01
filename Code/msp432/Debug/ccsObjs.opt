@@ -1,0 +1,1 @@
+"./cbfifo.obj" "./cmd_processor.obj" "./esp32.obj" "./gpio.obj" "./irq.obj" "./lcd.obj" "./main.obj" "./spi.obj" "./startup_msp432p401r_ccs.obj" "./system_msp432p401r.obj" "./timers.obj" "./uart.obj" "../msp432p401r.cmd" -llibc.a 
